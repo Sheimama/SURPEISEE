@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Happy Birthday, My Jaan ❤️</title>
+<style>
+  body {
+    margin: 0;
+    background: linear-gradient(135deg, #fceabb, #f8b500);
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    color: #4b2e05;
+    text-align: center;
+    padding: 2rem;
+  }
+  h1 {
+    font-size: 3rem;
+    margin-bottom: 0.5rem;
+    font-family: 'Georgia', serif;
+  }
+  p.message {
+    font-size: 1.5rem;
+    margin-bottom: 2rem;
+    font-style: italic;
+  }
+  .gallery {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    flex-wrap: wrap;
+    margin-bottom: 2rem;
+  }
+  .gallery img {
+    width: 180px;
+    height: 180px;
+    object-fit: cover;
+    border-radius: 15px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+    cursor: pointer;
+    transition: transform 0.3s ease;
+  }
+  .gallery img:hover {
+    transform: scale(1.1);
+  }
+  .audio-player {
+    margin-top: 1rem;
+  }
+  button#playMusic {
+    background: #f8b500;
+    border: none;
+    color: #4b2e05;
+    font-size: 1.2rem;
+    padding: 0.6rem 1.2rem;
+    border-radius: 10px;
+    cursor: pointer;
+    box-shadow: 0 3px 7px rgba(0,0,0,0.3);
+    transition: background 0.3s ease;
+  }
+  button#playMusic:hover {
+    background: #e09e00;
+  }
+</style>
+</head>
+<body>
+
+<h1>Happy Birthday, My Jaan ❤️</h1>
+<p class="message">I love you soo much my jaan I’m sorry I couldn’t make something better but I hope you enjoy it</p>
+
+<div class="gallery">
+  <img src="cute.jpg" alt="Photo 1" />
+  <img src="HAND.jpg" alt="Photo 2" />
+  <img src="`1.jpg" alt="Photo 3" />
+  <img src="khawa.jpg" alt="Photo 4" />
+</div>
+
+<div class="audio-player">
+  <button id="playMusic">Play Romantic Music 🎵</button>
+  <iframe id="ytMusic" width="0" height="0" src="https://www.youtube.com/embed/DbxOmAsowd0?enablejsapi=1&version=3&playerapiid=ytplayer" frameborder="0" allow="autoplay" allowfullscreen></iframe>
+</div>
+
+<script>
+  const playBtn = document.getElementById('playMusic');
+  const ytFrame = document.getElementById('ytMusic');
+  let isPlaying = false;
+
+  // Load YouTube Iframe API
+  var tag = document.createElement('script');
+  tag.src = "https://www.youtube.com/iframe_api";
+  var firstScriptTag = document.getElementsByTagName('script')[0];
+  firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
+
+  let player;
+
+  function onYouTubeIframeAPIReady() {
+    player = new YT.Player('ytMusic');
+  }
+
+  playBtn.addEventListener('click', () => {
+    if (player) {
+      if (!isPlaying) {
+        player.playVideo();
+        playBtn.textContent = 'Pause Music ⏸️';
+        isPlaying = true;
+      } else {
+        player.pauseVideo();
+        playBtn.textContent = 'Play Romantic Music 🎵';
+        isPlaying = false;
+      }
+    }
+  });
+</script>
+
+</body>
+</html>
